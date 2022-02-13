@@ -18,6 +18,8 @@ class CreateMembersTable extends Migration
             $table->string('name');
             $table->integer('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
