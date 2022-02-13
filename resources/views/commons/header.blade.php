@@ -11,8 +11,13 @@
         <div class="collapse navbar-collapse" id="nav-bar">
             <ul class="navbar-nav mr-auto"></ul>
             <ul class="navbar-nav">
-                <li class="nav-item">{!! link_to_route('signup', 'Register', [], ['class' => 'nav-link']) !!}</li>
-                <li class="nav-item"><a href="" class="nav-link">Login</a></li>
+                @if(Auth::check())
+                    <li class="nav-item"><a href="" class="nav-link">something</a></li>
+                    <li class="nav-item">{!! link_to_route('logout', 'Logout', [], ['class' => 'nav-link']) !!}</a></li>
+                @else
+                    <li class="nav-item">{!! link_to_route('signup', 'Sign Up', [], ['class' => 'nav-link']) !!}</li>
+                    <li class="nav-item">{!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}</a></li>
+                @endif
             </ul>
         </div>
 
